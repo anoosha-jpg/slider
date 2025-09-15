@@ -1,4 +1,173 @@
-*{
-    margin: 0;
-    padding: 0;
-}
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        scroll-behavior: smooth;
+    }
+
+    body {
+        background-image: url("./imges/pexels-francesco-ungaro-998641.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        font-family: Arial, sans-serif;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 20px;
+    }
+
+    /* Heading */
+    .slider-heading {
+        text-align: center;
+        font-size: 2.5rem;
+        font-weight: bold;
+        color: white;
+        margin-top: 25px;
+        margin-bottom: 25px;
+        text-shadow: 2px 2px 6px rgba(0, 204, 255, 0.925);
+    }
+
+
+    .container {
+        background-color: rgba(94, 90, 90, 0.585);
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        padding: 15px;
+        border-radius: 12px;
+        max-width: 900px;
+        width: 95%;
+    }
+
+    /* Thumbnails */
+    .thumbnail {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .tumbImg img {
+        width: 120px;
+        height: 80px;
+        object-fit: cover;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: 0.3s;
+        border: 2px solid transparent;
+    }
+
+    .tumbImg img:hover,
+    .tumbImg img.active {
+        border: 2px solid rgba(255, 255, 250, 0.888);
+        transform: scale(1.05);
+    }
+
+    /* Main Slider */
+    .mainslider {
+        position: relative;
+        width: 100%;
+        max-width: 700px;
+        overflow: hidden;
+        border-radius: 15px;
+    }
+
+    .mainslider img {
+        width: 100%;
+        height: 500px;
+        object-fit: cover;
+        display: block;
+        border-radius: 15px;
+    }
+
+    /* Arrows */
+    .arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 40px;
+        color: white;
+        background: rgba(0, 0, 0, 0.4);
+        padding: 10px 15px;
+        border-radius: 50%;
+        cursor: pointer;
+        user-select: none;
+        transition: 0.3s;
+        z-index: 2;
+    }
+
+    .arrow:hover {
+        background: rgba(0, 0, 0, 0.7);
+    }
+
+    .arrow.left {
+        left: 15px;
+    }
+
+    .arrow.right {
+        right: 15px;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 992px) {
+        .mainslider img {
+            height: 400px;
+        }
+
+        .tumbImg img {
+            width: 100px;
+            height: 70px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .container {
+            flex-direction: column;
+        }
+
+        .thumbnail {
+            order: 2;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 15px;
+            gap: 10px;
+        }
+
+        .mainslider {
+            order: 1;
+        }
+
+        .mainslider img {
+            height: 300px;
+        }
+
+        .arrow {
+            font-size: 28px;
+            padding: 6px 10px;
+        }
+
+        .slider-heading {
+            font-size: 2rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .mainslider img {
+            height: 220px;
+        }
+
+        .tumbImg img {
+            width: 80px;
+            height: 60px;
+        }
+
+        .slider-heading {
+            font-size: 1.5rem;
+        }
+    }
